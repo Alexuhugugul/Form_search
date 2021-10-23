@@ -14,6 +14,7 @@ declare module "styled-components" {
     white: string;
     colorInput: string;
     borderColor: string;
+    gray: string;
   }
 }
 
@@ -23,4 +24,5 @@ export const lightTheme: DefaultTheme = {
   white: "#fff",
   colorInput: "#F9F9F9",
   borderColor: "#262626",
+  gray: "#98999A",
 };

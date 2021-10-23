@@ -17,7 +17,7 @@ const showDropDown = keyframes`
     opacity:0;
     }
 
-    40%{
+  40%{
       opacity: 0;
     }
 
@@ -27,22 +27,24 @@ const showDropDown = keyframes`
     }
 `;
 
-export const StyledDropdown = styled.div<{ isLoading: boolean }>`
-  max-height: 222px;
+export const StyledDropdown = styled.div<{ showList: boolean }>`
   background: ${({ theme }) => theme.white};
   position: relative;
   border-radius: 0px 0px 8px 8px;
   overflow-y: auto;
-  /* opacity: 0; */
+  ::-webkit-scrollbar {
+    background: transparent;
+  }
+  opacity: 0;
 
   animation: ${showDropDown} 4s;
-  ${({ isLoading }) =>
-    isLoading &&
+  ${({ showList }) =>
+    showList &&
     css`
+      max-height: 213px;
       width: 100%;
-      height: 222px;
       opacity: 1;
-      &::before {
+      /* &::before {
         content: "";
         width: 76px;
         height: 76px;
@@ -54,17 +56,40 @@ export const StyledDropdown = styled.div<{ isLoading: boolean }>`
         margin: auto;
         background-image: url(${loadImg});
         animation: ${rotate} 1.5s infinite;
-      }
+      } */
     `}
 `;
 
 export const StyledItem = styled.div`
   /* height: 40px; */
-  padding: 16px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 16px;
+
+  &:first-child {
+    padding-top: 16px;
+  }
+
+  &:last-child {
+    padding-bottom: 16px;
+  }
 `;
 
 export const StyledImg = styled.img`
   height: 40px;
   width: 40px;
   border-radius: 50%;
+  margin-right: 8px;
+`;
+
+export const StyledInfo = styled.div``;
+
+export const StyledUser = styled.p`
+  font-size: 14px;
+`;
+
+export const StyledNickName = styled.p`
+  font-size: 12px;
+  color: ${({ theme }) => theme.gray};
 `;

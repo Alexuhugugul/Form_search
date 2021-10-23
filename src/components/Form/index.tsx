@@ -1,4 +1,5 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useRef, useState } from "react";
+
 import { Dropdown } from "../Dropdown";
 import {
   StyledContainer,
@@ -23,7 +24,12 @@ export const Form: React.FC = () => {
       <StyledContainer>
         <StyledContainerInput>
           <StyledImg htmlFor="searchInput" />
-          <StyledInput id="searchInput" placeholder="Search" onInput={search} />
+          <StyledInput
+            id="searchInput"
+            placeholder="Search"
+            onInput={search}
+            autoComplete="off"
+          />
         </StyledContainerInput>
 
         <Dropdown searchString={searchString} />
