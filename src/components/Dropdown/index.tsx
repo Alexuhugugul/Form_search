@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useGetListUsers } from "../../controllers/getListUsers";
-import {
-  StyledDropdown,
-  StyledImg,
-  StyledInfo,
-  StyledItem,
-  StyledNickName,
-  StyledUser,
-} from "./styled";
+import { Item } from "../Item";
+import { StyledDropdown } from "./styled";
 
 export type TDropdown = {
   searchString: string;
+  refDropDown: React.RefObject<HTMLDivElement>;
+  refInput: React.RefObject<HTMLInputElement>;
+  setFullString: (str: string) => void;
 };
 
-export const Dropdown: React.FC<TDropdown> = ({ searchString }) => {
+export const Dropdown: React.FC<TDropdown> = ({
+  searchString,
+  refDropDown,
+  refInput,
+  setFullString,
+}) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const setLoadingStatus = () => {
@@ -26,22 +28,21 @@ export const Dropdown: React.FC<TDropdown> = ({ searchString }) => {
 
   const { showList, listUsers } = useGetListUsers(
     searchString,
-    setLoadingStatus
+    setLoadingStatus,
+    refDropDown
   );
 
   return (
-    <StyledDropdown showList={showList} isLoading={isLoading}>
+    <StyledDropdown showList={showList} isLoading={isLoading} ref={refDropDown}>
       {showList &&
         listUsers.map((item) => {
           return (
-            <StyledItem key={item.id}>
-              <StyledImg src={item?.url} alt={item.name} />
-
-              <StyledInfo>
-                <StyledUser>{item.name}</StyledUser>
-                <StyledNickName>{`@${item.nickname}`}</StyledNickName>
-              </StyledInfo>
-            </StyledItem>
+            <Item
+              key={item.id}
+              item={item}
+              refInput={refInput}
+              setFullString={setFullString}
+            />
           );
         })}
     </StyledDropdown>

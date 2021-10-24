@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import searchImg from "../../assets/image/search.png";
 
-export const StyledForm = styled.form`
+export const StyledForm = styled.div`
   max-width: 400px;
   margin-top: 15%;
 `;

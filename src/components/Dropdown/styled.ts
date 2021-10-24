@@ -70,37 +70,3 @@ export const StyledDropdown = styled.div<{
       opacity: 1;
     `}
 `;
-
-export const StyledItem = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 8px 16px;
-
-  &:first-child {
-    padding-top: 16px;
-  }
-
-  &:last-child {
-    padding-bottom: 16px;
-  }
-`;
-
-export const StyledImg = styled.img`
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  margin-right: 8px;
-  user-select: none;
-`;
-
-export const StyledInfo = styled.div``;
-
-export const StyledUser = styled.p`
-  font-size: 14px;
-`;
-
-export const StyledNickName = styled.p`
-  font-size: 12px;
-  color: ${({ theme }) => theme.gray};
-`;
