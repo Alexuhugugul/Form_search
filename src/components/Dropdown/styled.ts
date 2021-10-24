@@ -27,7 +27,10 @@ const showDropDown = keyframes`
     }
 `;
 
-export const StyledDropdown = styled.div<{ showList: boolean }>`
+export const StyledDropdown = styled.div<{
+  showList: boolean;
+  isLoading: boolean;
+}>`
   background: ${({ theme }) => theme.white};
   position: relative;
   border-radius: 0px 0px 8px 8px;
@@ -36,15 +39,15 @@ export const StyledDropdown = styled.div<{ showList: boolean }>`
     background: transparent;
   }
   opacity: 0;
-
   animation: ${showDropDown} 4s;
-  ${({ showList }) =>
-    showList &&
+
+  ${({ isLoading }) =>
+    isLoading &&
     css`
       max-height: 213px;
       width: 100%;
       opacity: 1;
-      /* &::before {
+      &::before {
         content: "";
         width: 76px;
         height: 76px;
@@ -56,12 +59,19 @@ export const StyledDropdown = styled.div<{ showList: boolean }>`
         margin: auto;
         background-image: url(${loadImg});
         animation: ${rotate} 1.5s infinite;
-      } */
+      }
+    `}
+
+  ${({ showList }) =>
+    showList &&
+    css`
+      max-height: 213px;
+      width: 100%;
+      opacity: 1;
     `}
 `;
 
 export const StyledItem = styled.div`
-  /* height: 40px; */
   display: flex;
   align-items: center;
   width: 100%;
@@ -81,6 +91,7 @@ export const StyledImg = styled.img`
   width: 40px;
   border-radius: 50%;
   margin-right: 8px;
+  user-select: none;
 `;
 
 export const StyledInfo = styled.div``;

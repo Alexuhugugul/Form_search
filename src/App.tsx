@@ -1,6 +1,6 @@
+import "./App.css";
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import "./App.css";
 import { Form } from "./components/Form";
 import { Page } from "./components/Page";
 import { lightTheme } from "./theme";
