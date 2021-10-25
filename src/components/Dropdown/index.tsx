@@ -8,6 +8,12 @@ export type TDropdown = {
   refDropDown: React.RefObject<HTMLDivElement>;
   refInput: React.RefObject<HTMLInputElement>;
   setFullString: (str: string) => void;
+  refContainer: React.RefObject<HTMLDivElement>;
+};
+
+export type TStyledDropdown = {
+  showList: boolean;
+  isLoading: boolean;
 };
 
 export const Dropdown: React.FC<TDropdown> = ({
@@ -15,6 +21,7 @@ export const Dropdown: React.FC<TDropdown> = ({
   refDropDown,
   refInput,
   setFullString,
+  refContainer,
 }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -29,13 +36,12 @@ export const Dropdown: React.FC<TDropdown> = ({
   const { showList, listUsers } = useGetListUsers(
     searchString,
     setLoadingStatus,
-    refDropDown
+    refContainer
   );
 
   return (
     <StyledDropdown showList={showList} isLoading={isLoading} ref={refDropDown}>
-      {showList &&
-        !isLoading &&
+      {!isLoading &&
         listUsers.map((item) => {
           return (
             <Item

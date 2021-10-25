@@ -13,6 +13,7 @@ export const Form: React.FC = () => {
   const [searchString, setSearchString] = useState<string>("");
   const refInput = useRef<HTMLInputElement>(null);
   const refDropDown = useRef<HTMLDivElement>(null);
+  const refContainer = useRef<HTMLDivElement>(null);
 
   const search = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchString(e.currentTarget.value.toString());
@@ -30,11 +31,17 @@ export const Form: React.FC = () => {
     refInput.current?.focus();
   };
 
+  const handlerOnFocus = () => {
+    if (searchString.length) {
+      setFullString(searchString);
+    }
+  };
+
   return (
     <StyledForm>
       <StyledLabel htmlFor="searchInput">Search user</StyledLabel>
 
-      <StyledContainer>
+      <StyledContainer ref={refContainer}>
         <StyledContainerInput>
           <StyledImg htmlFor="searchInput" />
           <StyledInput
@@ -46,6 +53,7 @@ export const Form: React.FC = () => {
             onKeyDown={switchToDropDown}
             ref={refInput}
             value={searchString}
+            // onFocus={handlerOnFocus}
           />
         </StyledContainerInput>
 
@@ -54,6 +62,7 @@ export const Form: React.FC = () => {
           refDropDown={refDropDown}
           refInput={refInput}
           setFullString={setFullString}
+          refContainer={refContainer}
         />
       </StyledContainer>
     </StyledForm>

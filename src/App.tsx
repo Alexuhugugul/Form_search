@@ -1,5 +1,4 @@
 import "./App.css";
-import React from "react";
 import { ThemeProvider } from "styled-components";
 import { Form } from "./components/Form";
 import { Page } from "./components/Page";

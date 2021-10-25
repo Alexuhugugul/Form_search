@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
+import { TStyledDropdown } from ".";
 import loadImg from "../../assets/image/rectangle.png";
 
 const rotate = keyframes`
@@ -11,26 +12,7 @@ const rotate = keyframes`
     }
 `;
 
-const showDropDown = keyframes`
-  0% {
-    height: 0;
-    opacity:0;
-    }
-
-  40%{
-      opacity: 0;
-    }
-
-  100% {
-    opacity:1;
-    height: 100%;
-    }
-`;
-
-export const StyledDropdown = styled.div<{
-  showList: boolean;
-  isLoading: boolean;
-}>`
+export const StyledDropdown = styled.div<TStyledDropdown>`
   background: ${({ theme }) => theme.white};
   position: relative;
   border-radius: 0px 0px 8px 8px;
@@ -39,7 +21,6 @@ export const StyledDropdown = styled.div<{
     background: transparent;
   }
   opacity: 0;
-  animation: ${showDropDown} 4s;
 
   ${({ isLoading }) =>
     isLoading &&

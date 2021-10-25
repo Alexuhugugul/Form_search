@@ -15,6 +15,8 @@ export const useComponentVisible: TuseComponentVisible = (change, ref) => {
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains(event.target as Node)) {
       change(false);
+    } else {
+      change(true);
     }
   };
 

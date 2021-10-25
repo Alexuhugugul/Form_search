@@ -8,15 +8,16 @@ import {
   StyledUser,
 } from "./styled";
 
-export const Item: React.FC<{
+export type TItem = {
   item: TListDropDown;
   refInput: React.RefObject<HTMLInputElement>;
   setFullString: (str: string) => void;
-}> = ({ item, refInput, setFullString }) => {
+};
+
+export const Item: React.FC<TItem> = ({ item, refInput, setFullString }) => {
   const refItem = useRef<HTMLDivElement>(null);
 
   const handlerOnKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    console.log(event.code);
     if (event.code === "ArrowDown") {
       const nextElement = refItem.current?.nextSibling as HTMLDivElement;
       if (nextElement) {

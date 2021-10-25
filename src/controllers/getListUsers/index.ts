@@ -12,8 +12,8 @@ export const useGetListUsers = (
   const [showList, setShowList] = useState(false);
   const [listUsers, setListUsers] = useState<Array<TListDropDown>>([]);
 
-  useComponentVisible(() => {
-    setShowList(false);
+  useComponentVisible((status) => {
+    setShowList(status);
   }, refDropDown);
 
   const debouncedValue = useDebounce<string>(searchString, 1000);
@@ -32,7 +32,6 @@ export const useGetListUsers = (
         const currentList = await getUsersImage(list);
 
         if (currentList) {
-          console.log(currentList);
           setLoadingStatus();
         }
         setListUsers(currentList);
