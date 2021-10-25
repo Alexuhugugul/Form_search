@@ -1,6 +1,4 @@
-import React, { FormEvent, useEffect, useRef, useState } from "react";
-import { useComponentVisible } from "../../utils/useComponentVisible";
-
+import React, { useRef, useState } from "react";
 import { Dropdown } from "../Dropdown";
 import {
   StyledContainer,

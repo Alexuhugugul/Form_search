@@ -32,6 +32,7 @@ export const useGetListUsers = (
         const currentList = await getUsersImage(list);
 
         if (currentList) {
+          console.log(currentList);
           setLoadingStatus();
         }
         setListUsers(currentList);

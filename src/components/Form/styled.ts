@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import searchImg from "../../assets/image/search.png";
 
 export const StyledForm = styled.div`
