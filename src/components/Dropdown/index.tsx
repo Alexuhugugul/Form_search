@@ -35,6 +35,7 @@ export const Dropdown: React.FC<TDropdown> = ({
   return (
     <StyledDropdown showList={showList} isLoading={isLoading} ref={refDropDown}>
       {showList &&
+        !isLoading &&
         listUsers.map((item) => {
           return (
             <Item

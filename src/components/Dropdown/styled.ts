@@ -44,7 +44,7 @@ export const StyledDropdown = styled.div<{
   ${({ isLoading }) =>
     isLoading &&
     css`
-      max-height: 213px;
+      height: 213px;
       width: 100%;
       opacity: 1;
       &::before {

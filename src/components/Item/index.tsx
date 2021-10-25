@@ -40,8 +40,17 @@ export const Item: React.FC<{
     }
   };
 
+  const handlerOnClick = () => {
+    setFullString(item.name);
+  };
+
   return (
-    <StyledItem tabIndex={0} ref={refItem} onKeyDown={handlerOnKeyDown}>
+    <StyledItem
+      tabIndex={0}
+      ref={refItem}
+      onKeyDown={handlerOnKeyDown}
+      onClick={handlerOnClick}
+    >
       <StyledImg src={item?.url} alt={item.name} />
 
       <StyledInfo>
